@@ -1,4 +1,4 @@
-/*
+
 console.log("Hola sesión 2")
 
 //Pedir datos con prompt
@@ -11,12 +11,12 @@ const suma2 = prompt("Introduce otro numero para sumar")
 //parseInt convierte un texto en numero
 console.log("La suma de los dos numeros es: ", parseInt(suma1)+parseInt(suma2))
 
-*/
+
 
 
 
 //Juego de los numeros
-
+/*
 const numeroAdivinar = 10
 
 let victoria = 0
@@ -40,6 +40,7 @@ if (intentos == 0 && victoria != 1){
     console.log("Te quedaste sin intentos!")
 }
 
+*/
 
 
 
