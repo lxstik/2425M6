@@ -52,18 +52,72 @@ quiz = [
     }
 ]
 
-let quizHtml = ''
+console.log('aaaa')
+let quizIndex = Math.floor(Math.random() * 10);  // asignar quizIndex con un valor aleatorio
 
-for(let i = 0; i < quiz.length; i++) {
-    
-    quizHtml += `<h2>${quiz[i].pregunta}</h2>`
-    
-    for(let y= 0; y < quiz[i].respuestas.length; y++){
-        quizHtml += `<button>${quiz[i].respuestas[y]}</button>`
+function cargarPregunta() {
+    let random
+
+    //generar un nuevo numero aleatorio que no sea igual al anterior
+    do {
+        random = Math.floor(Math.random() * 10)
+    } while (quizIndex == random)
+
+    quizIndex = random;  // actualizar la variable con el nuevo valor
+
+    console.log(quizIndex)
+    let preguntaActual = quiz[quizIndex]
+
+    // Actualizamos la pregunta
+    document.querySelector('#question').innerHTML = preguntaActual.pregunta
+
+    // Actualizamos las respuestas
+    document.querySelector('#answer1').innerHTML = preguntaActual.respuestas[0]
+    document.querySelector('#answer2').innerHTML = preguntaActual.respuestas[1]
+    document.querySelector('#answer3').innerHTML = preguntaActual.respuestas[2]
+    document.querySelector('#answer4').innerHTML = preguntaActual.respuestas[3]
+
+    // Ocultamos el resultado cuando se carga una nueva pregunta
+    document.querySelector('#result').style.display = "none"
+}
+
+// cargar la primera pregunta al cargar la pagina
+cargarPregunta()
+
+
+//cambiar a la siguiente pregunta
+//cuando clicamos a siguiente pregunta arranca la funcion
+document.querySelector('#next-question').addEventListener('click', function() {
+    cargarPregunta()
+})
+
+
+//funcion de comprobación de las respuestas
+function verificarRespuesta(indiceRespuesta) {
+    if (indiceRespuesta == quiz[quizIndex].correcta) {
+        document.querySelector('#result').style.display = "block"
+        document.querySelector('#result').innerHTML = "Correcto"
+    } else {
+        document.querySelector('#result').style.display = "block"
+        document.querySelector('#result').innerHTML = "Incorrecto"
     }
 }
-/*
-for(let y = 0; y < quiz[i].respuestas.length; y++) {
-    quizHtml += `<button>${quiz[i].respuestas[y]}</button>`
-}*/
-document.querySelector('#cuestionario').innerHTML = quizHtml
+
+
+
+//clicando a las opciones:
+document.querySelector('#answer1').addEventListener('click', function () {
+    verificarRespuesta(0)
+});
+
+document.querySelector('#answer2').addEventListener('click', function () {
+    verificarRespuesta(1)
+});
+
+document.querySelector('#answer3').addEventListener('click', function () {
+    verificarRespuesta(2)
+});
+
+document.querySelector('#answer4').addEventListener('click', function () {
+    verificarRespuesta(3)
+});
