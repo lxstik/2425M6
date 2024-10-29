@@ -113,7 +113,3 @@ document.querySelector('#buscar').addEventListener('click', function() {
 
     document.getElementById('busquedaFecha').innerHTML = `La busqueda fue realizada a las: ${horaActual}`
 })
-
-
-
-console.log(horaActual)
