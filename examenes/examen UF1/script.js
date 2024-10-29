@@ -38,7 +38,7 @@ arrayCoches = [
 
 
 
-for(i = 0; i < 5; i++){
+for (i = 0; i < 5; i++) {
     //insertar informacion en las tarjetas
     //para buscar elementos con sus IDs e insertar los datos correspondientes moviendome con la variable "i"
     //imagenes
@@ -58,17 +58,17 @@ for(i = 0; i < 5; i++){
 
 
 //comparar
-document.querySelector('#comparar').addEventListener('click', function() {
+document.querySelector('#comparar').addEventListener('click', function () {
     //para recoger el valor desde select
     cocheIzqSeleccionado = document.getElementById('select1').value
     cocheDerSeleccionado = document.getElementById('select2').value
 
     //control de errores
-    if(cocheIzqSeleccionado == cocheDerSeleccionado){
+    if (cocheIzqSeleccionado == cocheDerSeleccionado) {
         alert("Error")
-    }else if(cocheIzqSeleccionado == 'Seleccionar' || cocheDerSeleccionado == 'Seleccionar'){
+    } else if (cocheIzqSeleccionado == 'Seleccionar' || cocheDerSeleccionado == 'Seleccionar') {
         alert("Error")
-    }else{
+    } else {
         //insertar los nombres de los coches seleccionados
         document.getElementById('compararNombreCoche1').innerHTML = arrayCoches[cocheIzqSeleccionado].nombre
         document.getElementById('compararNombreCoche2').innerHTML = arrayCoches[cocheDerSeleccionado].nombre
@@ -87,7 +87,7 @@ document.querySelector('#comparar').addEventListener('click', function() {
 
 
 //buscar
-document.querySelector('#buscar').addEventListener('click', function() {
+document.querySelector('#buscar').addEventListener('click', function () {
     //Limpiar las Li's generadas anteriormente al clicar
     document.getElementById('busquedaUl').innerHTML = '';
     //recoger el numero introducido
@@ -98,10 +98,10 @@ document.querySelector('#buscar').addEventListener('click', function() {
     for (i = 0; i < arrayCoches.length; i++) {
 
         //control de errores
-        if(inputInfo < 0){
+        if (inputInfo < 0) {
             alert("No hay coches con esta potencia!!!")
             i = 5 // para salir del buscle porque sino la pagina se queda bugeada en un bucle constante y no se quita alert !!!!!!!!!!
-        }else if (inputInfo < arrayCoches[i].comparacionPotencia) { //comparacion con cada coche en el array
+        } else if (inputInfo < arrayCoches[i].comparacionPotencia) { //comparacion con cada coche en el array
             document.getElementById('busquedaUl').innerHTML += `<li>${arrayCoches[i].nombre} - ${arrayCoches[i].potencia}</li>`
         }
     }
