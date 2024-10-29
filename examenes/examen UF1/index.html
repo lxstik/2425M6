@@ -315,7 +315,7 @@
             for (i = 0; i < arrayCoches.length; i++) {
 
                 //control de errores
-                if (inputInfo < 0 || 1900) {
+                if (inputInfo < 0 || inputInfo > 1899) {
                     alert("No hay coches con esta potencia!!!")
                     i = 5 // para salir del buscle porque sino la pagina se queda bugeada en un bucle constante y no se quita alert !!!!!!!!!!
                 } else if (inputInfo < arrayCoches[i].comparacionPotencia) { //comparacion con cada coche en el array
